@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<iso_project image_name="..\MOVIE.bin" cue_sheet="..\MOVIE.cue">
+	<track type="data">
+		<identifiers
+			system			="PLAYSTATION"
+			application		="VIDEO PLAYER"
+			volume			="MOVIE"
+			volume_set		="MOVIE"
+			publisher		="OLD-HARD"
+			data_preparer	="MKPSXISO"
+		/>
+		<license file="LICENSEE.DAT"/>
+		<directory_tree>
+			<file name="SYSTEM.CNF"	type="data"	source="SYSTEM.CNF"/>
+			<file name="PLAYER.EXE"	type="data"	source="PLAYER.EXE"/>
+			<file name="MOVIE.STR" type="str" source="..\MOVIE.STR"/>
+			<dummy sectors="1024"/>
+		</directory_tree>
+	</track>
+</iso_project>

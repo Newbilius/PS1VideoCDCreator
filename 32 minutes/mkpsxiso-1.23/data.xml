@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<iso_project image_name="..\MOVIE.bin" cue_sheet="..\MOVIE.cue">
+	<track type="data">	
+		<identifiers
+			system			="PLAYSTATION"
+			application		="PSPLAYER"
+			volume			="MOVIE"
+			volume_set		="MOVIE"
+			publisher		="OLD-HARD"
+			data_preparer	="MKPSXISO"
+		/>
+		<license file="PSPLAYER\LICENSEE.DAT"/>
+		<directory_tree>
+			<file name="SYSTEM.CNF"	type="data"	source="PSPLAYER\SYSTEM.CNF"/>			
+			<file name="PAL.EXE"	type="data"	source="PSPLAYER\PAL.EXE"/>
+			<file name="CONFIG.DAT"	type="data"	source="PSPLAYER\CONFIG.DAT"/>
+			<dir name="VIDEO">
+				<file name="1.STR" type="str" source="..\1.str"/>
+				<file name="2.STR" type="str" source="..\2.str"/>
+				<file name="3.STR" type="str" source="..\3.str"/>
+				<file name="4.STR" type="str" source="..\4.str"/>
+			</dir>
+			<dir name="RESOURCE">
+				<file name="ALBUMS.TIM" type="data" source="PSPLAYER\RESOURCE\ALBUMS.TIM"/>
+				<file name="FONT2.TIM" type="data" source="PSPLAYER\RESOURCE\FONT2.TIM"/>
+				<file name="FOTOFILM.TIM" type="data" source="PSPLAYER\RESOURCE\FOTOFILM.TIM"/>
+				<file name="MARK.TIM" type="data" source="PSPLAYER\RESOURCE\MARK.TIM"/>
+			</dir>
+			<dir name="ICONS">
+				<file name="1.TIM" type="data" source="PSPLAYER\ICONS\1.TIM"/>
+				<file name="2.TIM" type="data" source="PSPLAYER\ICONS\2.TIM"/>
+				<file name="3.TIM" type="data" source="PSPLAYER\ICONS\3.TIM"/>
+				<file name="4.TIM" type="data" source="PSPLAYER\ICONS\4.TIM"/>
+			</dir>
+			<dummy sectors="1024"/>
+		</directory_tree>
+	</track>
+</iso_project>

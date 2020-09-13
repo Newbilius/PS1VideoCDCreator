@@ -1,0 +1,550 @@
+##########################################
+##  Sample script for MovConv version 3.4
+##########################################
+#
+# < Functions >
+#	- Avi -
+#	Avi2strMdecAv()
+#	Avi2strMdecV()
+#	Avi2strMdecC()
+#	Avi2bsAv()
+#	Avi2bsV()
+#	Avi2bsC()
+#
+#	- Yuv -
+#	Yuv2strMdecAv()
+#	Yuv2strMdecV()
+#	Yuv2strMdecC()
+#	Yuv2bsAv()
+#	Yuv2bsV()
+#	Yuv2bsC()
+#	Yuv2avi()
+#
+#	- Rgb -
+#	Rgb2strMdecAv()
+#	Rgb2strMdecV()
+#	Rgb2strMdecC()
+#	Rgb2bsAv()
+#	Rgb2bsV()
+#	Rgb2bsC()
+#	Rgb2avi()
+#
+#	- Tim -
+#	Tim2strMdecAv()
+#	Tim2strMdecV()
+#	Tim2strMdecC()
+#	Tim2bsAv()
+#	Tim2bsV()
+#	Tim2bsC()
+#
+#	- Wav -
+#	Wav2xa()
+#
+#	- Pcm -
+#	Pcm2xa()
+#
+#	- Video+Sound -
+#	MakeAv()
+#	MakeV()
+#
+#	- Multi Channel -
+#	Pack1ch()
+#	Pack2ch()
+#	Pack4ch()
+#	Pack8ch()
+#	Pack16ch()
+#	Pack32ch()
+#
+#	- Q matrix -
+#	SetQ()
+#	SetDefaultQ()
+#
+# < Arguments >
+#	CD-ROM speed:			'x1' or 'x2'
+#	Frame rate:				'10fps', '12.5fps', '15fps',
+#							'16.7fps', '20fps', '25fps' or '30fps'
+#	Number of channels:		'1', '2' or '4'
+#	MDEC version:			'2' or '3'
+#	Frequency of xa audio:	'37.8KHz' or '18.9KHz'
+#	Stereo or Mono:			'Stereo' or 'Mono'
+#	Maximum frame size:		ex. '10sectors', '20000bytes'
+#	Frame mode:				'FixedFrameSize', 'VariableFrameSize'
+#	Video format name:		'strMDEC', 'bs'
+# 	Leap Sector:			'TRUE' or 'FALSE'
+# 	Ver1.98 compatible leap sector:		'TRUE' or 'FALSE'
+#	Bits Per Sample of PCM audio:		'16bit'
+#	Frequency of PCM audio:				(KHz)
+#	FileType:				'0': Subheader File(2336), '1': Movie File(2048), '2': Data File(2048)
+#	TermType:				'0': Nodata, '1': Video Sector, '2': Null Sector
+#	TermLength:				(sector)
+#	Y_C:					'Y'or 'C'
+
+
+#######################
+## Avi -> Str (MDEC)
+#######################
+Avi2strMdecAv(
+	e:\tmp\data.avi,	# Input file name
+	e:\tmp\avia.str,	# Output file name
+	x2,					# CD-ROM speed
+	15fps,				# Frame rate
+	1,					# Number of channels
+	2,					# MDEC version
+	FALSE,				# LeapSector
+	37.8KHz,			# Frequency of audio
+	Stereo				# Stereo or Mono
+);
+
+Avi2strMdecV(
+	e:\tmp\data.avi,	# Input file name
+	e:\tmp\aviv.str,	# Output file name
+	x2,					# CD-ROM speed
+	15fps,				# Frame rate
+	2,					# Number of channels
+	2,					# MDEC version
+	TRUE				# LeapSector
+);
+
+Avi2strMdecC(
+	e:\tmp\data.avi,	# Input file name
+	e:\tmp\avic.str,	# Output file name
+	10sectors,			# Maximum size for one frame
+	FixedFrameSize,		# Fixed frame size or not
+	2					# MDEC version
+);
+
+#######################
+## Avi -> bs
+#######################
+Avi2bsAv(
+	e:\tmp\data.avi,	# Input file name
+	e:\tmp\avia0000.bs,	# Output file name
+	x2,					# CD-ROM speed
+	15fps,				# Frame rate
+	1,					# Number of channels
+	2,					# MDEC version
+	FALSE,				# LeapSector
+	37.8KHz,			# Frequency of audio
+	Stereo				# Stereo or Mono
+);
+
+Avi2bsV(
+	e:\tmp\data.avi,	# Input file name
+	e:\tmp\aviv0000.bs,	# Output file name
+	x2,					# CD-ROM speed
+	15fps,				# Frame rate
+	2,					# Number of channels
+	2,					# MDEC version
+	TRUE				# LeapSector
+);
+
+Avi2bsC(
+	e:\tmp\data.avi,	# Input file name
+	e:\tmp\avic0000.bs,	# Output file name
+	10sectors,			# Maximum size for one frame
+	FixedFrameSize,		# Fixed frame size or not
+	2					# MDEC version
+);
+
+#######################
+## Yuv -> Str (MDEC)
+#######################
+Yuv2strMdecAv(
+	e:\tmp\data0000.yuv,	# Input file name
+	320,					# Width
+	240,					# Height
+	e:\tmp\yuva.str,		# Output file name
+	x2,						# CD-ROM speed
+	15fps,					# Frame rate
+	1,						# Number of channels
+	2,						# MDEC version
+	TRUE,					# LeapSector
+	37.8KHz,				# Frequency of audio
+	Mono					# Stereo or Mono
+);
+
+Yuv2strMdecV(
+	e:\tmp\data0000.yuv,	# Input file name
+	320,					# Width
+	240,					# Height
+	e:\tmp\yuvv.str,		# Output file name
+	x2,						# CD-ROM speed
+	15fps,					# Frame rate
+	2,						# Number of channels
+	2,						# MDEC version
+	TRUE					# LeapSector
+);
+
+Yuv2strMdecC(
+	e:\tmp\data0000.yuv,	# Input file name
+	320,					# Width
+	240,					# Height
+	e:\tmp\yuvc.str,		# Output file name
+	10sectors,				# Maximum size for one frame
+	FixedFrameSize,			# Fixed frame size or not
+	2						# MDEC version
+);
+
+#######################
+## Yuv -> Bs
+#######################
+Yuv2bsAv(
+	e:\tmp\data0000.yuv,	# Input file name
+	320,					# Width
+	240,					# Height
+	e:\tmp\yuva0000.bs,		# Output file name
+	x2,						# CD-ROM speed
+	15fps,					# Frame rate
+	1,						# Number of channels
+	2,						# MDEC version
+	TRUE,					# LeapSector
+	37.8KHz,				# Frequency of audio
+	Mono					# Stereo or Mono
+);
+
+Yuv2bsV(
+	e:\tmp\data0000.yuv,	# Input file name
+	320,					# Width
+	240,					# Height
+	e:\tmp\yuvv0000.bs,		# Output file name
+	x2,						# CD-ROM speed
+	15fps,					# Frame rate
+	2,						# Number of channels
+	2,						# MDEC version
+	TRUE					# LeapSector
+);
+
+Yuv2bsC(
+	e:\tmp\data0000.yuv,	# Input file name
+	320,					# Width
+	240,					# Height
+	e:\tmp\yuvc0000.bs,		# Output file name
+	10sectors,				# Maximum size for one frame
+	FixedFrameSize,			# Fixed frame size or not
+	2						# MDEC version
+);
+
+#######################
+## Yuv -> Avi
+#######################
+Yuv2avi(
+	e:\tmp\data0000.yuv,# Input file name
+	320,				# Width
+	240,				# Height
+	e:\tmp\yuv.avi,		# Output file name
+	15fps				# Frame rate
+);
+
+#######################
+## Rgb -> Str (MDEC)
+#######################
+Rgb2strMdecAv(
+	e:\tmp\data0000.rgb,	# Input file name
+	320,					# Width
+	240,					# Height
+	e:\tmp\rgba.str,		# Output file name
+	x2,						# CD-ROM speed
+	15fps,					# Frame rate
+	1,						# Number of channels
+	2,						# MDEC version
+	TRUE,					# LeapSector
+	37.8KHz,				# Frequency of audio
+	Mono					# Stereo or Mono
+);
+
+Rgb2strMdecV(
+	e:\tmp\data0000.rgb,	# Input file name
+	320,					# Width
+	240,					# Height
+	e:\tmp\rgbv.str,		# Output file name
+	x2,						# CD-ROM speed
+	15fps,					# Frame rate
+	2,						# Number of channels
+	2,						# MDEC version
+	TRUE					# LeapSector
+);
+
+Rgb2strMdecC(
+	e:\tmp\data0000.rgb,	# Input file name
+	320,					# Width
+	240,					# Height
+	e:\tmp\rgbc.str,		# Output file name
+	10sectors,				# Maximum size for one frame
+	FixedFrameSize,			# Fixed frame size or not
+	2						# MDEC version
+);
+
+#######################
+## Rgb -> Bs
+#######################
+Rgb2bsAv(
+	e:\tmp\data0000.rgb,	# Input file name
+	320,					# Width
+	240,					# Height
+	e:\tmp\rgba0000.bs,		# Output file name
+	x2,						# CD-ROM speed
+	15fps,					# Frame rate
+	1,						# Number of channels
+	2,						# MDEC version
+	TRUE,					# LeapSector
+	37.8KHz,				# Frequency of audio
+	Mono					# Stereo or Mono
+);
+
+Rgb2bsV(
+	e:\tmp\data0000.rgb,	# Input file name
+	320,					# Width
+	240,					# Height
+	e:\tmp\rgbv0000.bs,		# Output file name
+	x2,						# CD-ROM speed
+	15fps,					# Frame rate
+	2,						# Number of channels
+	2,						# MDEC version
+	TRUE					# LeapSector
+);
+
+Rgb2bsC(
+	e:\tmp\data0000.rgb,	# Input file name
+	320,					# Width
+	240,					# Height
+	e:\tmp\rgbc0000.bs,		# Output file name
+	10sectors,				# Maximum size for one frame
+	FixedFrameSize,			# Fixed frame size or not
+	2						# MDEC version
+);
+
+#######################
+## Rgb -> Avi
+#######################
+Rgb2avi(
+	e:\tmp\data0000.rgb,# Input file name
+	320,				# Width
+	240,				# Height
+	e:\tmp\rgb.avi,		# Output file name
+	15fps				# Frame rate
+);
+
+#######################
+## Tim -> Str (MDEC)
+#######################
+Tim2strMdecAv(
+	e:\tmp\data0000.tim,	# Input file name
+	e:\tmp\tima.str,		# Output file name
+	x2,						# CD-ROM speed
+	15fps,					# Frame rate
+	1,						# Number of channels
+	2,						# MDEC version
+	TRUE,					# LeapSector
+	37.8KHz,				# Frequency of audio
+	Mono					# Stereo or Mono
+);
+
+Tim2strMdecV(
+	e:\tmp\data0000.tim,	# Input file name
+	e:\tmp\timv.str,		# Output file name
+	x2,						# CD-ROM speed
+	15fps,					# Frame rate
+	2,						# Number of channels
+	2,						# MDEC version
+	TRUE					# LeapSector
+);
+
+Tim2strMdecC(
+	e:\tmp\data0000.tim,	# Input file name
+	e:\tmp\timc.str,		# Output file name
+	10sectors,				# Maximum size for one frame
+	FixedFrameSize,			# Fixed frame size or not
+	2						# MDEC version
+);
+
+#######################
+## Tim -> Bs
+#######################
+Tim2bsAv(
+	e:\tmp\data0000.tim,	# Input file name
+	e:\tmp\tima0000.bs,		# Output file name
+	x2,						# CD-ROM speed
+	15fps,					# Frame rate
+	1,						# Number of channels
+	2,						# MDEC version
+	TRUE,					# LeapSector
+	37.8KHz,				# Frequency of audio
+	Mono					# Stereo or Mono
+);
+
+Tim2bsV(
+	e:\tmp\data0000.tim,	# Input file name
+	e:\tmp\timv0000.bs,		# Output file name
+	x2,						# CD-ROM speed
+	15fps,					# Frame rate
+	2,						# Number of channels
+	2,						# MDEC version
+	TRUE					# LeapSector
+);
+
+Tim2bsC(
+	e:\tmp\data0000.tim,	# Input file name
+	e:\tmp\timc0000.bs,		# Output file name
+	10sectors,				# Maximum size for one frame
+	FixedFrameSize,			# Fixed frame size or not
+	2						# MDEC version
+);
+
+#######################
+## Wav -> Xa
+#######################
+Wav2xa(
+	e:\tmp\data.wav,	# Input file name
+	e:\tmp\wav.xa,		# Output file name
+	37.8KHz,			# Frequency of xa audio 
+	Stereo				# Stereo or Mono for xa audio
+);
+
+######################
+## Pcm -> Xa
+######################
+Pcm2xa(
+	e:\tmp\data.pcm,	# Input file name
+	16bit,				# Bits Per Sample
+	44.1KHz,			# Frequency of PCM audio (KHz)	
+	Stereo,				# Stereo or Mono for PCM audio	
+	e:\tmp\pcm.xa,		# Output file name
+	37.8KHz,			# Frequency of xa audio
+	Stereo				# Stereo or Mono for xa audio
+);
+
+#######################
+## Video+Sound
+#######################
+MakeAv(
+	e:\tmp\data.str,	# Video file name
+	strMDEC,			# Video format name
+	e:\tmp\data.xa,		# Audio file name
+	e:\tmp\makeav.str,	# Output file name (audio & video)	
+	x2,					# CD-ROM speed
+	15fps,				# Frame rate
+	1,					# Number of channels
+	FALSE,				# LeapSector
+	FALSE,				# ver1.98 compatible leap sector
+	37.8KHz,			# Frequency of audio 
+	Stereo				# Stereo or Mono
+);
+
+MakeV(
+	e:\tmp\data.str,	# Video file name
+	strMDEC,			# Video format name
+	e:\tmp\makev.str,	# Output file name (video)	
+	x2,					# CD-ROM speed
+	15fps,				# Frame rate
+	1,					# Number of channels
+	TRUE,				# LeapSector
+	FALSE				# ver1.98 compatible leap sector
+);
+
+#######################
+## Multi Channel 
+#######################
+Pack1ch(
+	e:\tmp\mc32_1ch.xa,	TRUE,			# Output file name(Fn), Subheader(Sub)
+	e:\tmp\data0.xa,	0,	0,	0		# ch0; Fn,FileType,TermType,TermLength
+);
+
+Pack2ch(
+	e:\tmp\mc32_2ch.str,FALSE,			# Output file name(Fn), Subheader(Sub)
+	e:\tmp\data0.str,	1,	0,	0,		# ch0; Fn,FileType,TermType,TermLength
+	e:\tmp\data1.str,	1,	0,	0		# ch1; Fn FileType,TermType,TermLength
+);
+
+Pack4ch(
+	e:\tmp\mc32_4ch.xa,	TRUE,			# Output file name(Fn), Subheader(Sub)
+	e:\tmp\data0.xa,	0,	1,	2,		# ch0; Fn,FileType,TermType,TermLength
+	e:\tmp\data1.xa,	0,	1,	2,		# ch1; Fn FileType,TermType,TermLength
+	e:\tmp\data2.xa,	0,	1,	2,		# ch2; Fn FileType,TermType,TermLength
+	e:\tmp\data3.xa,	0,	1,	2		# ch3; Fn FileType,TermType,TermLength
+);
+
+Pack8ch(
+	e:\tmp\mc32_8ch.xa,	TRUE,			# Output file name(Fn), Subheader(Sub)
+	e:\tmp\data0.xa,	0,	0,	0,		# ch0; Fn FileType,TermType,TermLength
+	e:\tmp\data1.xa,	0,	0,	0,		# ch1; Fn FileType,TermType,TermLength
+	e:\tmp\data2.xa,	0,	0,	0,		# ch2; Fn FileType,TermType,TermLength
+	e:\tmp\data3.xa,	0,	0,	0,		# ch3; Fn FileType,TermType,TermLength
+	e:\tmp\data4.xa,	0,	0,	0,		# ch4; Fn FileType,TermType,TermLength
+	e:\tmp\data5.xa,	0,	0,	0,		# ch5; Fn FileType,TermType,TermLength
+	e:\tmp\data6.xa,	0,	0,	0,		# ch6; Fn FileType,TermType,TermLength
+	e:\tmp\data7.xa,	0,	0,	0		# ch7; Fn FileType,TermType,TermLength
+);
+
+Pack16ch(
+	e:\tmp\mc32_16ch.xa,TRUE,			# Output file name(Fn), Subheader(Sub)
+	e:\tmp\data0.xa,	0,	0,	0,		# ch0; Fn FileType,TermType,TermLength
+	e:\tmp\data1.xa,	0,	0,	0,		# ch1; Fn FileType,TermType,TermLength
+	e:\tmp\data2.xa,	0,	0,	0,		# ch2; Fn FileType,TermType,TermLength
+	e:\tmp\data3.xa,	0,	0,	0,		# ch3; Fn FileType,TermType,TermLength
+	e:\tmp\data4.xa,	0,	0,	0,		# ch4; Fn FileType,TermType,TermLength
+	e:\tmp\data5.xa,	0,	0,	0,		# ch5; Fn FileType,TermType,TermLength
+	e:\tmp\data6.xa,	0,	0,	0,		# ch6; Fn FileType,TermType,TermLength
+	e:\tmp\data7.xa,	0,	0,	0,		# ch7; Fn FileType,TermType,TermLength
+	e:\tmp\data8.xa,	0,	0,	0,		# ch8; Fn FileType,TermType,TermLength
+	e:\tmp\data9.xa,	0,	0,	0,		# ch9; Fn FileType,TermType,TermLength
+	e:\tmp\data10.xa,	0,	0,	0,		# ch10; Fn FileType,TermType,TermLength
+	e:\tmp\data11.xa,	0,	0,	0,		# ch11; Fn FileType,TermType,TermLength
+	e:\tmp\data12.xa,	0,	0,	0,		# ch12; Fn FileType,TermType,TermLength
+	e:\tmp\data13.xa,	0,	0,	0,		# ch13; Fn FileType,TermType,TermLength
+	e:\tmp\data14.xa,	0,	0,	0,		# ch14; Fn FileType,TermType,TermLength
+	e:\tmp\data15.xa,	0,	0,	0		# ch15; Fn FileType,TermType,TermLength
+);
+
+Pack32ch(
+	e:\tmp\mc32_32ch.xa,TRUE,			# Output file name(Fn), Subheader(Sub)
+	e:\tmp\data0.xa,	0,	1,	8,		# ch0; Fn FileType,TermType,TermLength
+	e:\tmp\data1.xa,	0,	1,	8,		# ch1; Fn FileType,TermType,TermLength
+	e:\tmp\data2.xa,	0,	2,	8,		# ch2; Fn FileType,TermType,TermLength
+	e:\tmp\data3.xa,	0,	1,	8,		# ch3; Fn FileType,TermType,TermLength
+	e:\tmp\data4.xa,	0,	1,	8,		# ch4; Fn FileType,TermType,TermLength
+	e:\tmp\data5.xa,	0,	2,	8,		# ch5; Fn FileType,TermType,TermLength
+	e:\tmp\data6.xa,	0,	0,	0,		# ch6; Fn FileType,TermType,TermLength
+	e:\tmp\data7.xa,	0,	0,	0,		# ch7; Fn FileType,TermType,TermLength
+	e:\tmp\data8.xa,	0,	0,	0,		# ch8; Fn FileType,TermType,TermLength
+	e:\tmp\data9.xa,	0,	0,	0,		# ch9; Fn FileType,TermType,TermLength
+	e:\tmp\data10.xa,	0,	0,	0,		# ch10; Fn FileType,TermType,TermLength
+	e:\tmp\data11.xa,	0,	0,	0,		# ch11; Fn FileType,TermType,TermLength
+	e:\tmp\data12.xa,	0,	0,	0,		# ch12; Fn FileType,TermType,TermLength
+	e:\tmp\data13.xa,	0,	0,	0,		# ch13; Fn FileType,TermType,TermLength
+	e:\tmp\data14.xa,	0,	0,	0,		# ch14; Fn FileType,TermType,TermLength
+	e:\tmp\data15.xa,	0,	0,	0,		# ch15; Fn FileType,TermType,TermLength
+	e:\tmp\data16.xa,	0,	0,	0,		# ch16; Fn FileType,TermType,TermLength
+	e:\tmp\data17.xa,	0,	0,	0,		# ch17; Fn FileType,TermType,TermLength
+	e:\tmp\data18.xa,	0,	0,	0,		# ch18; Fn FileType,TermType,TermLength
+	e:\tmp\data19.xa,	0,	0,	0,		# ch19; Fn FileType,TermType,TermLength
+	e:\tmp\data20.xa,	0,	0,	0,		# ch20; Fn FileType,TermType,TermLength
+	e:\tmp\data21.xa,	0,	0,	0,		# ch21; Fn FileType,TermType,TermLength
+	e:\tmp\data22.xa,	0,	0,	0,		# ch22; Fn FileType,TermType,TermLength
+	e:\tmp\data23.xa,	0,	0,	0,		# ch23; Fn FileType,TermType,TermLength
+	e:\tmp\data24.xa,	0,	0,	0,		# ch24; Fn FileType,TermType,TermLength
+	e:\tmp\data25.xa,	0,	0,	0,		# ch25; Fn FileType,TermType,TermLength
+	e:\tmp\data26.xa,	0,	0,	0,		# ch26; Fn FileType,TermType,TermLength
+	e:\tmp\data27.xa,	0,	0,	0,		# ch27; Fn FileType,TermType,TermLength
+	e:\tmp\data28.xa,	0,	0,	0,		# ch28; Fn FileType,TermType,TermLength
+	e:\tmp\data29.xa,	0,	0,	0,		# ch29; Fn FileType,TermType,TermLength
+	e:\tmp\data30.xa,	0,	0,	0,		# ch30; Fn FileType,TermType,TermLength
+	e:\tmp\data31.xa,	0,	0,	0		# ch31; Fn FileType,TermType,TermLength
+);
+
+#######################
+## Q matrix
+#######################
+SetQ(
+	Y,								# Y_C
+	2,16,19,22,26,27,29,34,			# Coef[00] - Coef[07]
+	16,16,22,24,27,29,34,37,		# Coef[10] - Coef[17]
+	19,22,26,27,29,34,34,38,		# Coef[20] - Coef[27]
+	22,22,26,27,29,34,37,40,		# Coef[30] - Coef[37]
+	22,26,27,29,32,35,40,48,		# Coef[40] - Coef[47]
+	26,27,29,32,35,40,48,58,		# Coef[50] - Coef[57]
+	26,27,29,34,38,46,56,69,		# Coef[60] - Coef[67]
+	27,29,35,38,46,56,69,83			# Coef[70] - Coef[77]
+);
+
+SetDefaultQ(Y);						# Y_C
+

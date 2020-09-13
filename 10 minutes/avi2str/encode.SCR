@@ -1,0 +1,11 @@
+Avi2strMdecAv(
+	RAW.avi,	# Input file name
+	MOVIE.str,	# Output file name
+	x2,					# CD-ROM speed
+	15fps,				# Frame rate
+	1,					# Number of channels
+	2,					# MDEC version
+	FALSE,				# LeapSector
+	37.8KHz,			# Frequency of audio
+	Mono				# Stereo or Mono
+);
